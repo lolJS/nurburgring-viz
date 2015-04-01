@@ -33,8 +33,7 @@ var lapTimes = [{"Length":"20,600m (67,600ft)","Time":"6:48","Vehicle":"<a href=
     .attr('stroke-dashoffset', TRACK_LENGTH)
     .transition()
     .duration(function (d) {
-      console.log('time: ' + 20000 *  (ttodbl(d.Time) / 6.8) * 10);
-      return 20000 * (1 + (ttodbl(d.Time) / 6.8) / 10);
+      return (20000 *  (ttodbl(d.Time) / 6.8));
     })
     .ease('linear')
     .attr('stroke-dashoffset', function (d, c) { 
