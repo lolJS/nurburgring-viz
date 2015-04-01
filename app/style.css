@@ -10,52 +10,52 @@ body {
   padding: 20px 70px;
   margin: 0;
 }
+
 header {
   height: 160px;
 }
 
 h1 {
-  background: url(images/Nurburgring-Logo.png) no-repeat;
-
   float: left;
   width: 192px;
   height: 119px;
+  margin: 0;
+  padding: 0;
 
+  background: url(images/Nurburgring-Logo.png) no-repeat;
+  
   text-indent: -5000px;
 }
-
 
 h2 {
   font-size: 24px;
   font-style: italic;
   font-weight: normal;
-  margin: 0px;
 }
 
 .track-config {
   float: right;
   color: #929292;
-  margin-top: 15px;
 }
 
 .track-config h2 span {
   display: block;
   width: 100%;
+  margin: 0;
+  padding: 0;
   
   color: #6d6d6d;
   font-size: 14px;
   font-style: normal;
   text-transform: uppercase;
   text-align: right;
-  margin: 0;
-  padding: 0;
 }
 
 .track-config h2 {
   display: block;
   width: auto;
-  padding: 0 15px 0 0;
-  margin: 0;
+  padding: 0;
+  margin: 0 15px 0;
   float: left;
 
   color: #f2f2f2;
@@ -93,18 +93,24 @@ h2 {
 }
 
 .track svg {
-  width: 60%;
+  width: 70%;
 }
 
 svg g text {
-  font-size: 6px;
-  text-transform: uppercase;
-  fill: #bbb;
-  opacity: 0.6;
-  
+  fill: #888888;
+  opacity: 0.5;
   cursor: pointer;
-  
   transition: all 0.25s ease-in;
+  
+  font-size: 6px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-shadow: 0.5px 0.5px rgba(0,0,0,0.76);
+}
+
+svg g#lap-times path {
+  cursor: pointer;
+  transition: stroke-width 0.25 ease-in;
 }
 
 svg g text:hover {
