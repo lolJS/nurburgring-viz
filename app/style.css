@@ -88,12 +88,21 @@ h2 {
 }
 
 .track {
-  position: relative;
+  padding: 0px;
   overflow: hidden;
+  position: relative;
+  height: 100%;
+  max-height: 900px;
+  margin: 0px auto;
 }
 
 .track svg {
+  display: block;
+  position: relative;
+  top: -40px;
   width: 70%;
+  padding: 0px;
+  margin: 0px auto;
 }
 
 svg g text {
@@ -114,8 +123,8 @@ svg g#lap-times path {
 }
 
 svg g text:hover {
-  opacity: 0.8;
-  fill: #ff0000;
+  opacity: 0.9;
+  fill: #fff;
 }
 
 .track-overlay {
@@ -125,3 +134,78 @@ svg g text:hover {
   top: 0;
   left: 0;
 }
+
+ol {
+  counter-reset: li;
+  font-size: 0.7em;
+  float: left;
+  color: #fefefe;
+  
+  margin: 0 0 0 30px;
+  padding: 0;
+}
+
+ol a {
+  color: #ddd;
+  text-decoration: none;
+}
+
+ol li h3 {
+  text-transform: uppercase;
+  
+  display: inline-block;
+  width: auto;
+  max-width: 100px;
+  padding: 10px 0 0 0;
+  margin: 0;
+}
+
+ol li p {
+  margin: 5px 0;
+  padding: 0;
+}
+
+ol li p span {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #777;
+  padding: 0 0 4px 0;
+}
+
+ol > li {
+  position: relative; /* Create a positioning context */
+  margin: 3em 0 6px 2em; /* Give each list item a left margin to make room for the numbers */
+  padding: 0 8px; /* Add some spacing around the content */
+  list-style: none; /* Disable the normal item numbering */
+
+  line-height: 1em;
+  border-left: 1px solid #444;
+}
+
+ol > li:before {
+  content: counter(li); /* Use the counter as content */
+  counter-increment: li; /* Increment the counter by 1 */
+  /* Position and style the number */
+  position: absolute;
+  top: 6px;
+  left: -2em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 2em;
+  /* Some space between the number and the content in browsers that support
+     generated content but not positioning it (Camino 2 is one example) */
+  margin-right :8px;
+  padding: 4px;
+
+  font-size: 3em;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+}
+
+li ol,
+li ul { margin-top:6px; }
+
+ol ol li:last-child { margin-bottom:0; }
+

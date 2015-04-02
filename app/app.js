@@ -10,17 +10,23 @@ var lapTimes = [{"Length":"20,600m (67,600ft)","Time":"6:48","Vehicle":"<a href=
     ttodbl = function (time) {
       time = time.split(':');
 
-      return Number(time[0]) + time[1]/60;
+      return Number(time[0]) + Number(time[1]/60);
     };
-  
+
   lapTimes = lapTimes.slice(0, 9);
-  
-  
-  /*d3.select('#car-list').selectAll('li')
-    .data(lapTimes)
-    .enter()
-    .insert('path')*/
-  
+
+  var carList = d3.select('#car-list').selectAll('li')
+                  .data(lapTimes)
+                  .enter()
+                  .append('li');
+
+  carList.append('h3')
+    .attr('style', function (d, c) { return 'border-top: 3px solid ' + colorScale[c]; })
+    .html(function (d) { return d.Vehicle; });
+
+  carList.append('p')
+    .html(function (d) { return '<span>Driven by</span><br />' + d.Driver; });
+
   d3.select('#lap-times').selectAll('path')
     .data(d3.values(colorScale))
     .data(lapTimes)
@@ -39,5 +45,6 @@ var lapTimes = [{"Length":"20,600m (67,600ft)","Time":"6:48","Vehicle":"<a href=
     .attr('stroke-dashoffset', function (d, c) { 
       return TRACK_LENGTH * (ttodbl(d.Time) / 6.8) - TRACK_LENGTH;
     });
+
 })(d3);
 
